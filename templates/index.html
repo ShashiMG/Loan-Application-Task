@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Application</title>
+    <!-- Include any necessary CSS stylesheets or external libraries here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Loan Application Form</h1>
+    <form id="loan-application-form" method="POST" action="{{ url_for('submit_application') }}">
+        <label for="business-name">Business Name:</label>
+        <input type="text" id="business-name" name="business_name" required>
+
+        <br>
+
+        <label for="loan-amount">Loan Amount:</label>
+        <input type="number" id="loan-amount" name="loan_amount" required>
+
+        <br>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <!-- Display the application result here -->
+    <div id="application-result">
+        {% if application_result %}
+            <h2>Application Result</h2>
+            <p>{{ application_result }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Include any necessary JavaScript files here -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
